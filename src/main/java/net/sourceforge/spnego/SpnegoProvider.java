@@ -143,8 +143,10 @@ public final class SpnegoProvider {
                 // TODO : decode/decrypt NTLM token and return a new SpnegoAuthScheme
                 // of type "Basic" where the token value is a base64 encoded
                 // username + ":" + password string
-                throw new UnsupportedOperationException("NTLM specified. Downgraded to " 
-                        + "Basic Auth (and/or SSL) but downgrade not supported.");
+                //throw new UnsupportedOperationException("NTLM specified. Downgraded to " 
+                //        + "Basic Auth (and/or SSL) but downgrade not supported.");
+            	
+            	return null;
             }
             
             resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED, true);

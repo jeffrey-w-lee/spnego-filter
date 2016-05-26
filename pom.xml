@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.sourceforge.spnego</groupId>
 	<artifactId>spnego-filter</artifactId>
-	<version>r7</version>
+	<version>r8</version>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>

@@ -179,7 +179,7 @@ import org.ietf.jgss.GSSException;
  * @author Darwin V. Felix
  * 
  */
-public final class SpnegoHttpFilter implements Filter {
+public class SpnegoHttpFilter implements Filter {
 
     private static final Logger LOGGER = Logger.getLogger(Constants.LOGGER_NAME);
 
@@ -227,8 +227,8 @@ public final class SpnegoHttpFilter implements Filter {
         final SpnegoPrincipal principal;
         try {
             principal = this.authenticator.authenticate(httpRequest, spnegoResponse);
-        } catch (GSSException gsse) {
-            LOGGER.severe("HTTP Authorization Header="
+        } catch (Exception gsse) {
+            LOGGER.warning("HTTP Authorization Header="
                 + httpRequest.getHeader(Constants.AUTHZ_HEADER));
             throw new ServletException(gsse);
         }
@@ -240,7 +240,7 @@ public final class SpnegoHttpFilter implements Filter {
 
         // assert
         if (null == principal) {
-            LOGGER.severe("Principal was null.");
+            LOGGER.warning("Principal was null.");
             spnegoResponse.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, true);
             return;
         }
